@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,9 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animals\Animal.cs" />
     <Compile Include="Animals\Cat.cs" />
     <Compile Include="Animals\Dog.cs" />
     <Compile Include="Animals\Gender.cs" />
+    <Compile Include="Animals\IAnimal.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

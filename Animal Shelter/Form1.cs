@@ -26,34 +26,69 @@ namespace Animal_Shelter
             {
                 this.reservations.NewCat(
                     txtName.Text, gender, txtBadHabits.Text);
-                this.lblCat.Text = this.reservations.Cat.ToString();
+                Update();
                 this.btnReserveCat.Enabled = true;
             }
             else if (this.cmbSpecies.Text == "Dog")
             {
                 this.reservations.NewDog(txtName.Text, gender);
-                this.lblDog.Text = this.reservations.Dog.ToString();
+                Update();
                 this.btnReserveDog.Enabled = true;
             }
         }
 
         private void btnReserveCat_Click(object sender, EventArgs e)
         {
-            if (this.reservations.Cat != null)
+            if (lbAnimals.SelectedItem is Cat)
             {
-                this.reservations.Cat.Reserve(txtReservor.Text);
-                this.lblCat.Text = this.reservations.Cat.ToString();
-                this.btnReserveCat.Enabled = false;
+                Cat c = lbAnimals.SelectedItem as Cat;
+                if (c != null)
+                {
+                    c.Reserve(txtReservor.Text);
+                    Update();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Het door u gekozen dier is geen kat!");
             }
         }
 
         private void btnReserveDog_Click(object sender, EventArgs e)
         {
-            if (this.reservations.Dog != null)
+            if (lbAnimals.SelectedItem is Dog)
             {
-                this.reservations.Dog.Reserve(txtReservor.Text);
-                this.lblDog.Text = this.reservations.Dog.ToString();
-                this.btnReserveDog.Enabled = false;
+                Dog d = lbAnimals.SelectedItem as Dog;
+                if (d != null)
+                {
+                    d.Reserve(txtReservor.Text);
+                    Update();
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Het door u gekozen dier is geen Hond!");
+            }
+        }
+        private void Update()
+        {
+            lbAnimals.Items.Clear();
+            lbAnimals.Items.Clear();
+            foreach (IAnimal animal in reservations.Animals)
+            {
+                if (animal is Cat)
+                {
+                    Cat cat = animal as Cat;
+                    this.lbAnimals.Items.Add(cat);
+                }
+                if (animal is Dog)
+                {
+                    Dog dog = animal as Dog;
+
+                    lbAnimals.Items.Add(dog);
+                }
             }
         }
     }

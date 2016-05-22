@@ -3,29 +3,17 @@ using System.Diagnostics.Contracts;
 
 namespace Animal_Shelter.Animals
 {
-    public class Cat
+    public class Cat:Animal
     {
-        public string Name { get; private set; }
-        public Gender Gender { get; private set; }
-        public Reservor ReservedBy { get; private set; }
         public string BadHabits { get; private set; }
 
-        public Cat(string name, Gender gender, string badHabits)
+        public Cat(string name, Gender gender, string badHabits):base(name,gender)
         {
             this.Name = name;
             this.Gender = gender;
             this.BadHabits = badHabits;
         }
 
-        public bool Reserve(string reservedBy)
-        {
-            if (this.ReservedBy == null)
-            {
-                this.ReservedBy = new Reservor(reservedBy, DateTime.Now);
-                return true;
-            }
-            return false;
-        }
 
         public override string ToString()
         {

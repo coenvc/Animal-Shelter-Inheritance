@@ -2,11 +2,8 @@
 
 namespace Animal_Shelter.Animals
 {
-    public class Dog
+    public class Dog:Animal
     {
-        public string Name { get; private set; }
-        public Gender Gender { get; private set; }
-        public Reservor ReservedBy { get; private set; }
         public DateTime LastWalk { get; private set; }
         public bool NeedsWalk
         {
@@ -16,22 +13,14 @@ namespace Animal_Shelter.Animals
             }
         }
 
-        public Dog(string name, Gender gender)
+        public Dog(string name, Gender gender):base(name, gender)
         {
             this.Name = name;
             this.Gender = gender;
             this.LastWalk = DateTime.Today;
         }
 
-        public bool Reserve(string reservedBy)
-        {
-            if (this.ReservedBy == null)
-            {
-                this.ReservedBy = new Reservor(reservedBy, DateTime.Now);
-                return true;
-            }
-            return false;
-        }
+ 
 
         public override string ToString()
         {

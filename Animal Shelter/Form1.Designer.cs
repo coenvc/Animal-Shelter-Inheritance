@@ -39,15 +39,12 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnAddAnimal = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCat = new System.Windows.Forms.Label();
-            this.lblDog = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txtReservor = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnReserveCat = new System.Windows.Forms.Button();
             this.btnReserveDog = new System.Windows.Forms.Button();
+            this.btnReserveCat = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtReservor = new System.Windows.Forms.TextBox();
+            this.lbAnimals = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -159,52 +156,13 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.lblDog);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Controls.Add(this.lblCat);
-            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.lbAnimals);
             this.groupBox5.Location = new System.Drawing.Point(137, 12);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(400, 100);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Animals";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cat:";
-            // 
-            // lblCat
-            // 
-            this.lblCat.AutoSize = true;
-            this.lblCat.Location = new System.Drawing.Point(44, 22);
-            this.lblCat.Name = "lblCat";
-            this.lblCat.Size = new System.Drawing.Size(31, 13);
-            this.lblCat.TabIndex = 15;
-            this.lblCat.Text = "none";
-            // 
-            // lblDog
-            // 
-            this.lblDog.AutoSize = true;
-            this.lblDog.Location = new System.Drawing.Point(44, 35);
-            this.lblDog.Name = "lblDog";
-            this.lblDog.Size = new System.Drawing.Size(31, 13);
-            this.lblDog.TabIndex = 17;
-            this.lblDog.Text = "none";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Dog:";
             // 
             // groupBox6
             // 
@@ -219,21 +177,16 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Reserve animal";
             // 
-            // txtReservor
+            // btnReserveDog
             // 
-            this.txtReservor.Location = new System.Drawing.Point(50, 18);
-            this.txtReservor.Name = "txtReservor";
-            this.txtReservor.Size = new System.Drawing.Size(109, 20);
-            this.txtReservor.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Name:";
+            this.btnReserveDog.Enabled = false;
+            this.btnReserveDog.Location = new System.Drawing.Point(280, 16);
+            this.btnReserveDog.Name = "btnReserveDog";
+            this.btnReserveDog.Size = new System.Drawing.Size(109, 23);
+            this.btnReserveDog.TabIndex = 5;
+            this.btnReserveDog.Text = "Reserve dog";
+            this.btnReserveDog.UseVisualStyleBackColor = true;
+            this.btnReserveDog.Click += new System.EventHandler(this.btnReserveDog_Click);
             // 
             // btnReserveCat
             // 
@@ -246,16 +199,29 @@
             this.btnReserveCat.UseVisualStyleBackColor = true;
             this.btnReserveCat.Click += new System.EventHandler(this.btnReserveCat_Click);
             // 
-            // btnReserveDog
+            // label2
             // 
-            this.btnReserveDog.Enabled = false;
-            this.btnReserveDog.Location = new System.Drawing.Point(280, 16);
-            this.btnReserveDog.Name = "btnReserveDog";
-            this.btnReserveDog.Size = new System.Drawing.Size(109, 23);
-            this.btnReserveDog.TabIndex = 5;
-            this.btnReserveDog.Text = "Reserve dog";
-            this.btnReserveDog.UseVisualStyleBackColor = true;
-            this.btnReserveDog.Click += new System.EventHandler(this.btnReserveDog_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Name:";
+            // 
+            // txtReservor
+            // 
+            this.txtReservor.Location = new System.Drawing.Point(50, 18);
+            this.txtReservor.Name = "txtReservor";
+            this.txtReservor.Size = new System.Drawing.Size(109, 20);
+            this.txtReservor.TabIndex = 2;
+            // 
+            // lbAnimals
+            // 
+            this.lbAnimals.FormattingEnabled = true;
+            this.lbAnimals.Location = new System.Drawing.Point(6, 19);
+            this.lbAnimals.Name = "lbAnimals";
+            this.lbAnimals.Size = new System.Drawing.Size(388, 69);
+            this.lbAnimals.TabIndex = 0;
             // 
             // Form1
             // 
@@ -279,7 +245,6 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -298,15 +263,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnAddAnimal;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Label lblCat;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblDog;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Button btnReserveDog;
         private System.Windows.Forms.Button btnReserveCat;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtReservor;
+        private System.Windows.Forms.ListBox lbAnimals;
     }
 }
 
